@@ -1,0 +1,77 @@
+body {
+    background-color: #f2f2f2;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+  }
+  .material-symbols-outlined{
+    color: #000;
+    top: 20px; /* Distância do topo */
+    left: 50px; /* Distância da esquerda */
+    position: absolute;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .material-symbols-outlined:hover{
+    color: #125d6d;
+    transform: scale(2.2);
+
+  }
+  
+  .register-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 650px;
+    margin: auto; /* Centraliza verticalmente */
+    margin-top: 280px;
+   
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bolder;
+  }
+  
+.register-container .name, .personal-itens, .password-container{
+    display: flex;
+}
+
+.name div, .personal-itens div, .password-container div{
+    width: 49.5%;
+}
+
+.name .first-name input, .personal-itens .cpf input, .password-container .password-create input{
+    margin-right: 10px;
+}
+.name .last-name input, .personal-itens .phone input, .password-container .password-confirm input{
+    margin-left: 10px;
+}
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0 35px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .user-type {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35px;
+  }
+  
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
