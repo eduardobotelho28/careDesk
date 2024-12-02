@@ -9,17 +9,18 @@
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
   <title>Register</title>
+  <script defer src="../assets/js/register.js"></script>
 </head>
 <body>
     <header>
-    <a class="material-symbols-outlined" href="#">
-        keyboard_backspace
-    </a>
-    <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
+        <a class="material-symbols-outlined" href="#">
+            keyboard_backspace
+        </a>
+        <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
     </header>
   <div class="register-container">
     <h1>REGISTER</h1>
-    <form>
+    <form id="register-form">
         <div class="name">
             <div class="first-name">
                 <label for="firstname">First name:</label>
