@@ -27,7 +27,7 @@
             </div>
             <div class="last-name">
                 <label for="lastname">Last name:</label>
-                <input type="text" id="lastname" name="lastname" placeholder="First name here" required>
+                <input type="text" id="lastname" name="lastname" placeholder="Last name here" required>
             </div>
         </div>
         <div class="user-type">
@@ -51,7 +51,7 @@
             </div>
             <div class="phone">
                 <label for="phone">Telefone:</label>
-                <input type="text" id="phone" placeholder="(00)00000-0000" required>
+                <input type="text" id="phone" placeholder="(00) 00000-0000" required>
             </div>
         </div>
         <label for="email">Email:</label>
