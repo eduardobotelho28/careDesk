@@ -1,29 +1,70 @@
 <?php
 // require_once '../models/UserModel.php';
 
-// if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-//     die('acesso proibido');
-// }
-
 $controller = new UserController();
 $controller->processRequest();
-// print_r($_POST); exit; 
 
 class UserController {
 
+    public $model;
+
+    public function __construct() {
+        // $this->model = new UserModel();
+    }
+
+    //método que faz o roteamento
     public function processRequest() {
 
-        $method = $_SERVER['REQUEST_METHOD'];
+        $action = $_GET['action'];
 
-        switch ($method) {
-            case 'POST':
+        switch ($action) {
+            case 'register':
+                $this->register();
+                break;
+
+            case 'login':
                 # code...
                 break;
             
             default:
-                # code...
+                http_response_code(404);
+                die(json_encode('ação não existente no controoler'));
                 break;
         }
+
+    }
+
+    private function register () {
+        $errors = $this->valid_input_data($_POST);
+        if(!empty($errors)) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'errors' => $errors]);
+        }
+    }
+
+    private function valid_input_data ($data) {
+        $errors = [];
+
+        //verifica se algum campo do formulário veio vazio (atualmente, todos os campos são obrigatórios)
+        foreach ($data as $key => $value) {
+            if($value == '' || $value == null) {
+                $errors[] = "Campo $key é obrigatório";
+            }
+        }
+
+        return $errors;
+
+    }
+
+        // switch ($method) {
+        //     case 'POST':
+        //         # code...
+        //         break;
+            
+        //     default:
+        //         # code...
+        //         break;
+        // }
 
         // $name = $_POST['name'] ?? '';
         // $email = $_POST['email'] ?? '';
@@ -43,5 +84,5 @@ class UserController {
         // } else {
         //     echo json_encode(['success' => false, 'message' => 'Failed to register user.']);
         // }
-    }
+    
 }

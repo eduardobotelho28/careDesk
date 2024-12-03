@@ -8,7 +8,7 @@ async function send_form_ajax (evt) {
 
     const formData = new FormData(form)
 
-    const req = await fetch('/careDesk/Controllers/UserController.php', {
+    const req = await fetch('/careDesk/Controllers/UserController.php/?action=register', {
         method : "POST",
         body   : formData
     })
