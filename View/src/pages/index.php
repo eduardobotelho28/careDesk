@@ -1,3 +1,3 @@
 <?php
 
-echo 'teste Henrique Guimarães' ; 
+// echo 'teste Henrique Guimarães' ; 
