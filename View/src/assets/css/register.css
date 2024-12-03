@@ -64,14 +64,12 @@ body {
     box-sizing: border-box;
   }
   
-  .user-type {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 35px;
-  }
-  
 .button-container{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.response-container{
+  display: none;
 }

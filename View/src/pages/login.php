@@ -18,12 +18,14 @@
             </div>
         </div>
         <div class="login-container">
-        <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
-            <h1>LOG IN</h1>
-            <input type="text" placeholder="CPF">
-            <input type="password" placeholder="Password">
-            <button type="submit">Log in</button>
-            <a href="#">Forgot your password?</a>
+            <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
+            <form id="login-form">
+                <h1>LOG IN</h1>
+                <input type="text" placeholder="CPF">
+                <input type="password" placeholder="Password">
+                <button type="submit">Log in</button>
+                <a href="">Forgot your password?</a>
+            </form>
         </div>
     </div>
 </body>

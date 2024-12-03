@@ -55,7 +55,6 @@ body, html {
     background-color:  #F0F0F3;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,9 +62,15 @@ body, html {
     flex-direction: column;
     padding: 0;
     position: relative; /* Necessário para posicionamento absoluto dentro deste contêiner */
-
 }
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
+    
+}
 .login-container h1 {
     text-align: center;
     margin-bottom: 30px;
