@@ -30,12 +30,19 @@ async function send_form_ajax (evt) {
 //trata a resposta do servidor, colocando na DOM pro usuário pode ver.
 function treat_response (data) {
 
-    console.log(data)
+    responseDiv.innerHTML = ''
+
+    //ocorreu algum erro ??? 
     if(data.success == 'false') {
         data.errors.forEach(error => {
             const paragraph     = document.createElement('p')
             paragraph.innerText = error
             responseDiv.appendChild(paragraph)
         });
+        return 
     }
+
+    //sucesso, redireciona.
+    window.location.href = '/careDesk/View/src/pages/login.php'
+    
 }

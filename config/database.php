@@ -5,7 +5,7 @@ class Database extends PDO
     private string $hostname = "127.0.0.1";
     private string $username = "root";
     private string $password = "";
-    private string $database = "careDesk";
+    private string $database = "caredesk";
 
     public function __construct()
     {
