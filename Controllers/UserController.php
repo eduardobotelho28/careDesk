@@ -38,10 +38,10 @@ class UserController {
 
     private function register () {
 
-        $data = $_POST;
-
-        $data = $this->sanitize_data($data);
-
+        $this->valid_method('POST');
+        
+        $data   = $_POST;
+        $data   = $this->sanitize_data($data);
         $errors = $this->valid_input_data($data);
 
         if(!empty($errors)) {
@@ -50,7 +50,10 @@ class UserController {
             exit;
         }
 
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
         $this->model->register($data);
+
+        echo json_encode(array('success' => true)); exit; 
     }
 
     private function login () {
@@ -74,11 +77,11 @@ class UserController {
             } 
         }
 
-        //valida email
+        //valida email 
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = 'Digite um email válido.';
         }
-        
+
         return $errors;
 
     }
@@ -100,6 +103,12 @@ class UserController {
         }
 
         return $sanitized;
+    }
+
+    function valid_method ($method) {
+        if($_SERVER['REQUEST_METHOD'] != $method)  {
+            die(json_encode('nao permitido'));
+        }
     }
     
 
