@@ -45,7 +45,7 @@ body {
 }
 
 .name div, .personal-itens div, .password-container div{
-    width: 49.5%;
+    width: 49%;
 }
 
 .name .first-name input, .personal-itens .cpf input, .password-container .password-create input{

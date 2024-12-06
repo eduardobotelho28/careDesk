@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_backspace" />
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-
-  <title>Register</title>
+  <script src="https://kit.fontawesome.com/ae4cf172c7.js" crossorigin="anonymous"></script>
+  <title>Register | CareDesk</title>
   <script defer src="../assets/js/register.js"></script>
 </head>
 <body>
     <header>
-        <a class="material-symbols-outlined" href="#">
+        <a class="material-symbols-outlined" href="home.php">
             keyboard_backspace
         </a>
         <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
@@ -34,7 +34,7 @@
             <div class="personal-itens">
                 <div class="cpf">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
                 </div>
                 <div class="phone">
                     <label for="phone">Telefone:</label>
@@ -70,7 +70,7 @@
             <div class="footer-links">
                 <h3>Links Úteis</h3>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="../../../index.php">Home</a></li>
                     <li><a href="#">Sobre</a></li>
                     <li><a href="#">Contato</a></li>
                 </ul>

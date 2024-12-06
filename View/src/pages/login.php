@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caredesk Login</title>
+    <title>Login | Caredesk</title>
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/ae4cf172c7.js" crossorigin="anonymous"></script>
+    <script defer src="../assets/js/login.js"></script>
+
 </head>
 <body>
     <div class="grid-container">
@@ -18,14 +20,24 @@
             </div>
         </div>
         <div class="login-container">
-            <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
+            <img class="logo" src="../assets/images/logo-caredesk - greenDark.png" alt="Logo CAREDESK">
             <form id="login-form">
                 <h1>LOG IN</h1>
                 <input type="text" placeholder="CPF">
-                <input type="password" placeholder="Password">
+                <div class="password-input">
+                    <input type="password" placeholder="Password" id="password">
+                    <i class="fa-regular fa-eye-slash" id="togglePassword"></i>               
+                </div>
+                
                 <button type="submit">Log in</button>
-                <a href="">Forgot your password?</a>
             </form>
+            <div class="links-container">
+                    <!--<a href="">Forgot your password?</a> -->
+                    <p>
+                        Don't have an account? 
+                        <a href="register.php">Sign up</a>
+                    </p>
+                </div>
         </div>
     </div>
 </body>

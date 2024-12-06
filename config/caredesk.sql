@@ -6,20 +6,22 @@ USE caredesk;
 CREATE TABLE users (
     idUsers INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    cpf VARCHAR(11) UNIQUE NOT NULL
+    cpf VARCHAR(11) NOT NULL
 );
 
 -- Tabela de Médicos
 CREATE TABLE medicos (
     idMedicos INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    crm VARCHAR(100) UNIQUE NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    crm VARCHAR(100) NOT NULL,
     especialidade VARCHAR(100) NOT NULL,
     telefone VARCHAR(11) NOT NULL,
-    cpf VARCHAR(11) UNIQUE NOT NULL
+    cpf VARCHAR(11) NOT NULL
 );
 
 -- Tabela de Agenda
@@ -35,10 +37,11 @@ CREATE TABLE agenda (
 CREATE TABLE pacientes (
     idPaciente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     historico TEXT,
     telefone VARCHAR(11) NOT NULL,
-    cpf VARCHAR(11) UNIQUE NOT NULL
+    cpf VARCHAR(11) NOT NULL
 );
 
 -- Tabela de Consultas
@@ -56,28 +59,25 @@ CREATE TABLE consultas (
 
 
 -- Inserindo dados na tabela de Usuários
-INSERT INTO users (nome, email, senha, cpf) VALUES
-('Admin1', 'admin1@clinica.com', 'senha123', '11111111111'),
-('Admin2', 'admin2@clinica.com', 'senha123', '22222222222'),
-('Admin3', 'admin3@clinica.com', 'senha123', '33333333333'),
-('Admin4', 'admin4@clinica.com', 'senha123', '44444444444'),
-('Admin5', 'admin5@clinica.com', 'senha123', '55555555555');
+INSERT INTO users (nome, sobrenome email, senha, cpf) VALUES
+('Eduardo', 'Botelho' 'admin1@clinica.com', 'senha123', '11111111111'),
+('Bruno', 'Batista','admin2@clinica.com', 'senha123', '22222222222'),
 
 -- Inserindo dados na tabela de Médicos
-INSERT INTO medicos (nome, email, crm, especialidade, telefone, cpf) VALUES
-('Dr. João Silva', 'joao@clinica.com', '12345', 'Cardiologia', '99999999999', '66666666666'),
-('Dr. Ana Clara', 'ana@clinica.com', '54321', 'Dermatologia', '98888888888', '77777777777'),
-('Dr. Pedro Costa', 'pedro@clinica.com', '67890', 'Ortopedia', '97777777777', '88888888888'),
-('Dr. Maria Souza', 'maria@clinica.com', '09876', 'Pediatria', '96666666666', '99999999999'),
-('Dr. Lucas Rocha', 'lucas@clinica.com', '11223', 'Neurologia', '95555555555', '11111111122');
+INSERT INTO medicos (nome, sobrenome, email, crm, especialidade, telefone, cpf) VALUES
+('Dr. João', 'Silva', 'joao@clinica.com', '12345', 'Cardiologia', '99999999999', '66666666666'),
+('Dr. Ana Clara', 'Pereira' , 'ana@clinica.com', '54321', 'Dermatologia', '98888888888', '77777777777'),
+('Dr. Pedro', 'Costa' 'pedro@clinica.com', '67890', 'Ortopedia', '97777777777', '88888888888'),
+('Dr. Maria', 'Souza', 'maria@clinica.com', '09876', 'Pediatria', '96666666666', '99999999999'),
+('Dr. Lucas', 'Rocha', 'lucas@clinica.com', '11223', 'Neurologia', '95555555555', '11111111122');
 
 -- Inserindo dados na tabela de Pacientes
 INSERT INTO pacientes (nome, email, historico, telefone, cpf) VALUES
-('Carlos Almeida', 'carlos@paciente.com', 'Hipertensão', '91111111111', '22222222233'),
-('Fernanda Lima', 'fernanda@paciente.com', 'Diabetes', '92222222222', '33333333344'),
-('José Oliveira', 'jose@paciente.com', 'Asma', '93333333333', '44444444455'),
-('Mariana Castro', 'mariana@paciente.com', 'Alérgica a medicamentos', '94444444444', '55555555566'),
-('Tiago Mendes', 'tiago@paciente.com', 'Histórico de fraturas', '95555555555', '66666666677');
+('Carlos', 'Almeida', 'carlos@paciente.com', 'Hipertensão', '91111111111', '22222222233'),
+('Fernanda', 'Lima', 'fernanda@paciente.com', 'Diabetes', '92222222222', '33333333344'),
+('José', 'Oliveira', 'jose@paciente.com', 'Asma', '93333333333', '44444444455'),
+('Mariana', 'Castro', 'mariana@paciente.com', 'Alérgica a medicamentos', '94444444444', '55555555566'),
+('Tiago', 'Mendes' 'tiago@paciente.com', 'Histórico de fraturas', '95555555555', '66666666677');
 
 -- Inserindo dados na tabela de Agenda
 INSERT INTO agenda (dataHora, disponibilidade, medicos_idMedicos) VALUES
