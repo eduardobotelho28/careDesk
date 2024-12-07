@@ -56,9 +56,48 @@ class UserController {
         echo json_encode(array('success' => true)); exit; 
     }
 
-    private function login () {
+    private function login() {
 
+        $this->valid_method('POST');
+    
+        $data = $_POST;
+        $data = $this->sanitize_data($data);
+        $errors = [];
+        
+        if (empty($data['cpf'])) {
+            $errors[] = "Campo CPF é obrigatório";
+        }
+        if (empty($data['password'])) {
+            $errors[] = "Campo senha é obrigatório";
+        }
+    
+        if (!empty($errors)) {
+            http_response_code(400);
+            echo json_encode(['success' => 'false', 'errors' => $errors]);
+            exit;
+        }
+    
+        // Busca o usuário pelo CPF
+        $user = $this->model->findByCPF($data['cpf']);
+    
+        if (!$user) {
+            http_response_code(401); // Não autorizado
+            echo json_encode(['success' => 'false', 'errors' => ["CPF ou senha inválidos"]]);
+            exit;
+        }
+    
+        // Verifica a senha
+        if (!password_verify($data['password'], $user['password'])) {
+            http_response_code(401); // Não autorizado
+            echo json_encode(['success' => 'false', 'errors' => ["CPF ou senha inválidos"]]);
+            exit;
+        }
+    
+        // Login bem-sucedido
+        echo json_encode(['success' => 'true', 'redirect' => '/careDesk/View/src/pages/dashboard.php']);
+        exit;
     }
+    
 
     private function valid_input_data ($data) {
         $errors = [];

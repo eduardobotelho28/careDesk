@@ -25,8 +25,15 @@ class UserModel {
         $stmt->execute($data);
     }
 
-    public function login () {
-
+    public function findByCPF($cpf) {
+        $query = "SELECT * FROM users WHERE cpf = :cpf LIMIT 1";
+    
+        $stmt = $this->db->prepare($query); // Supondo que `$this->db` seja a conexão PDO
+        $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
+        $stmt->execute();
+    
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 
 }
