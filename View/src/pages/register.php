@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <a class="material-symbols-outlined" href="home.php">
+        <a class="material-symbols-outlined" href="../../../index.php">
             keyboard_backspace
         </a>
         <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
@@ -34,7 +34,7 @@
             <div class="personal-itens">
                 <div class="cpf">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                 </div>
                 <div class="phone">
                     <label for="phone">Telefone:</label>
