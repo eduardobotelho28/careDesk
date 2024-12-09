@@ -7,6 +7,11 @@ body, html {
     height: 100%;
     font-family: "Montserrat", sans-serif;
   }
+  input::placeholder,
+  textarea::placeholder {
+    color: #aaa; /* Cor personalizada */
+    font-style: italic; /* Opcional */
+  }
     button {
     background-color: #000;
     color: #fff;

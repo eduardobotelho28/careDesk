@@ -8,6 +8,7 @@ body {
     margin: 0;
     flex-direction: column;
   }
+
   .material-symbols-outlined{
     color: #000;
     top: 20px; /* Distância do topo */
@@ -40,7 +41,7 @@ body {
     font-weight: bolder;
   }
   
-.register-container .name, .personal-itens, .password-container{
+.register-container .name, .personal-itens, .password-container, .email{
     display: flex;
 }
 
@@ -48,10 +49,10 @@ body {
     width: 49%;
 }
 
-.name .first-name input, .personal-itens .cpf input, .password-container .password-create input{
+.name .first-name input, .personal-itens .cpf input, .password-container .password-create input, .box-itens .crm input, .box-itens .email input{
     margin-right: 10px;
 }
-.name .last-name input, .personal-itens .phone input, .password-container .password-confirm input{
+.name .last-name input, .personal-itens .phone input, .password-container .password-confirm input, .box-itens .crm input{
     margin-left: 10px;
 }
   input[type=text], input[type=password] {
@@ -76,4 +77,50 @@ body {
   background-color: #E7E7E7;
   padding: 5px;
   border-radius: 3px;
+}
+
+.box-itens {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.box-itens .email {
+  flex-direction: column;
+  width: 78%;
+}
+.box-itens .crm{
+  width: 20%;
+}
+
+textarea {
+  margin: 10px 0;
+  width: 93%;
+  height: 150px;
+  padding: 12px 20px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  resize: vertical; /* Permite ajustar apenas a altura */
+}
+
+select {
+  width: 99.5%;
+  padding: 12px 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  appearance: none; /* Remove o estilo padrão */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007BFF;
 }

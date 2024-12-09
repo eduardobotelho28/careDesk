@@ -7,6 +7,7 @@ CREATE TABLE users (
     idUsers INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     sobrenome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(11) NOT NULL,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(255) NOT NULL,
     cpf VARCHAR(11) NOT NULL
@@ -59,9 +60,9 @@ CREATE TABLE consultas (
 
 
 -- Inserindo dados na tabela de Usuários
-INSERT INTO users (nome, sobrenome email, senha, cpf) VALUES
-('Eduardo', 'Botelho' 'admin1@clinica.com', 'senha123', '11111111111'),
-('Bruno', 'Batista','admin2@clinica.com', 'senha123', '22222222222'),
+INSERT INTO users (nome, sobrenome, email, telefone, senha, cpf) VALUES
+('Eduardo', 'Botelho' 'admin1@clinica.com', '99999999999', 'senha123','11111111111'),
+('Bruno', 'Batista','admin2@clinica.com', '99999999999', 'senha123', '22222222222'),
 
 -- Inserindo dados na tabela de Médicos
 INSERT INTO medicos (nome, sobrenome, email, crm, especialidade, telefone, cpf) VALUES
