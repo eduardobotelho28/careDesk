@@ -59,9 +59,11 @@ class UserController {
     private function login() {
 
         $this->valid_method('POST');
-    
+
         $data = $_POST;
+
         $data = $this->sanitize_data($data);
+
         $errors = [];
         
         if (empty($data['cpf'])) {
@@ -87,7 +89,7 @@ class UserController {
         }
     
         // Verifica a senha
-        if (!password_verify($data['password'], $user['password'])) {
+        if (!password_verify($data['password'], $user['senha'])) {
             http_response_code(401); // Não autorizado
             echo json_encode(['success' => 'false', 'errors' => ["CPF ou senha inválidos"]]);
             exit;

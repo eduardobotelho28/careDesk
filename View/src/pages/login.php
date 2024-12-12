@@ -23,9 +23,9 @@
             <img class="logo" src="../assets/images/logo-caredesk - greenDark.png" alt="Logo CAREDESK">
             <form id="login-form">
                 <h1>LOG IN</h1>
-                <input type="text" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                <input type="text" placeholder="CPF" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                 <div class="password-input">
-                    <input type="password" placeholder="Password" id="password">
+                    <input type="password" placeholder="Password" name="password" id="password">
                     <i class="fa-regular fa-eye-slash" id="togglePassword"></i>               
                 </div>
                 

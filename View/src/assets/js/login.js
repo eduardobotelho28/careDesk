@@ -21,8 +21,8 @@ async function sendFormAjax(evt) {
     try {
         evt.preventDefault(); 
 
-        const formData = new FormData(form); 
-
+        const formData = new FormData(form);
+        
         const req = await fetch('/careDesk/Controllers/UserController.php?action=login', {
             method: 'POST',
             body: formData
