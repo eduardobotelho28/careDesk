@@ -17,21 +17,19 @@ class UserModel {
     // Método para registrar um novo usuário
     public function register ($data) {
 
-        unset($data['lastname'])        ;
         unset($data['confirm-password']);
 
-        $stmt = $this->db->prepare("INSERT INTO users (nome, email, senha, cpf)
-                                    VALUES (:firstname, :email, :password, :cpf)");
+        $stmt = $this->db->prepare("INSERT INTO users (nome, sobrenome, email, senha, cpf)
+                                    VALUES (:firstname, :lastname, :email, :password, :cpf)");
         $stmt->execute($data);
     }
 
     public function findByCPF($cpf) {
         $query = "SELECT * FROM users WHERE cpf = :cpf LIMIT 1";
     
-        $stmt = $this->db->prepare($query); // Supondo que `$this->db` seja a conexão PDO
+        $stmt = $this->db->prepare($query); 
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $stmt->execute();
-    
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
