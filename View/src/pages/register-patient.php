@@ -15,6 +15,11 @@
 </head>
 <body class="patient">
     <?php include 'header.php'; ?>
+    <div class="register">
+        <a class="material-symbols-outlined" href="doctor.php">
+            <img src="../assets/images/keyboard_backspace.png" alt="Voltar">
+        </a>
+    </div>
     <div class="register-container">
         <h1>REGISTER PATIENT</h1>
         <form id="register-form">

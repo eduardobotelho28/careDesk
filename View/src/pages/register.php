@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/register.css">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_backspace" />
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
@@ -14,7 +13,7 @@
   <script defer src="../assets/js/register.js"></script>
 </head>
 <body>
-    <header>
+    <header class="register">
         <a class="material-symbols-outlined" href="../../../index.php">
             keyboard_backspace
         </a>

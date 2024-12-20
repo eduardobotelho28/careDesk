@@ -6,9 +6,7 @@
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/register.css">
   <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+  <link rel="stylesheet" href="../assets/css/footer.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
   <title>Register Doctor | CareDesk</title>
   <script defer src="../assets/js/register.js"></script>
@@ -18,6 +16,11 @@
 </head>
 <body class="doctor">
     <?php include 'header.php'; ?>
+    <div class="register">
+        <a class="material-symbols-outlined" href="doctor.php">
+            <img src="../assets/images/keyboard_backspace.png" alt="Voltar">
+        </a>
+    </div>
     <div class="register-container">
         <h1>REGISTER DOCTOR</h1>
         <form id="register-form">

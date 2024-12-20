@@ -1,3 +1,9 @@
+<?php
+require_once '../../../Models/PatientModel.php';
+
+$patientModel = new PatientModel();
+$patients = $patientModel->getAllPatients();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,6 +12,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/patient_doctor.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Patient | CareDesk</title>
@@ -13,7 +20,44 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <main></main>
+    <main class="container">
+        <h1>Pacientes Registrados</h1>
+        <div class="action-buttons">
+            <a href="register-patient.php" class="add-button">Adicionar Novo Paciente</a>
+        </div>
+        <table class="patient-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($patients)) : ?>
+                    <?php foreach ($patients as $patient) : ?>
+                        <tr>
+                            <td><?= htmlspecialchars($patient['nome']); ?></td>
+                            <td><?= htmlspecialchars($patient['sobrenome']); ?></td>
+                            <td><?= htmlspecialchars($patient['cpf']); ?></td>
+                            <td><?= htmlspecialchars($patient['telefone']); ?></td>
+                            <td><?= htmlspecialchars($patient['email']); ?></td>
+                            <td>
+                                <a href="edit-patient.php?id=<?= $patient['idPaciente']; ?>" class="edit-button">Editar</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="6">Nenhum paciente registrado.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </main>
     <?php include 'footer.php'; ?>
 
 </body>

@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+<?php
+// session_start();
+// $userName = $_SESSION['user_name'] ?? 'Usuário';
+?>
 <header>
         <div class="logo-header">
             <a href="home.php">
@@ -25,11 +30,11 @@
                 <span class="material-symbols-outlined">
                     account_circle
                 </span>
-                <p>Usuário</p>
+                <p>User<?//= htmlspecialchars($userName); ?></p>
             </div>
             <button id="expand-button">▼</button>
             <div id="user-menu" class="dropdown hidden">
-                <a href="#">Log Out</a>
+                <a href="logout.php">Log Out</a>
             </div>
         </div>
 </header>

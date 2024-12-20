@@ -1,5 +1,10 @@
+<?php
+// session_start();
+// $userName = $_SESSION['user_name'] ?? 'Usuário';
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pr-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +23,7 @@
     <?php include 'header.php'; ?>
     <main>
         <section class="intro">
-            <h1>Bem-vindo ao CareDesk</h1>
+            <h1>Bem-vindo ao CareDesk, <?//= htmlspecialchars($userName); ?>!</h1>
             <p>Gerencie sua clínica médica de forma prática e eficiente.</p>
             <!-- <a href="#" class="cta-button">Começar Agora</a> -->
         </section>

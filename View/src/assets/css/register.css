@@ -17,7 +17,7 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 650px;
     margin: auto; /* Centraliza verticalmente */
-    margin-top: 100px;
+    margin-top: 50px;
    
   }
   .register-btn {
@@ -126,4 +126,18 @@ select {
 select:focus {
   outline: none;
   border-color: #007BFF;
+}
+
+.register a, .register img{
+  margin: 10px;
+  color: #000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.register a:hover, .register img{
+  opacity: 50%;
+  transform: scale(1.25); /* Aumenta o tamanho do botão em 10% */
+}
+.register img{
+  width: 30px;
 }
