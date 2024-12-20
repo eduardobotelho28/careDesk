@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>CareDesk</title>
     <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-    <title>Home | Caredesk</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+    <script src="../assets/js/header.js" defer></script>
+
 </head>
 <body>
-    
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>Sobre o CareDesk</h3>
-                <p>CareDesk é um sistema de gerenciamento de clínicas médicas, projetado para facilitar a organização e o atendimento com tecnologia moderna e acessível.</p>
+    <?php include 'header.php'; ?>
+    <main>
+        <section class="intro">
+            <h1>Bem-vindo ao CareDesk</h1>
+            <p>Gerencie sua clínica médica de forma prática e eficiente.</p>
+            <!-- <a href="#" class="cta-button">Começar Agora</a> -->
+        </section>
+        <section class="features">
+            <div class="feature-item">
+                <h3>Cadastro de Médicos e Pacientes</h3>
+                <p>Organize facilmente os registros de sua equipe e pacientes.</p>
             </div>
-            <div class="footer-links">
-                <h3>Links Úteis</h3>
-                <ul>
-                    <li><a href="../../../index.php">Home</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
+            <div class="feature-item">
+                <h3>Gerenciamento de Consultas</h3>
+                <p>Agende e visualize consultas de forma intuitiva.</p>
             </div>
-            <div class="footer-contact">
-                <h3>Contato</h3>
-                <p>Email: contato@caredesk.com</p>
-                <p>Telefone: (11) 9999-9999</p>
+            <div class="feature-item">
+                <h3>Serviços Personalizados</h3>
+                <p>Adicione e configure os serviços oferecidos por sua clínica.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CareDesk. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
+        </section>
+    </main>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="login-container">
-            <img class="logo" src="../assets/images/logo-caredesk - greenDark.png" alt="Logo CAREDESK">
+            <img class="logo" src="../assets/images/logo-caredesk-blue.png" alt="Logo CAREDESK">
             <form id="login-form">
                 <h1>LOG IN</h1>
                 <input type="text" placeholder="CPF" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">

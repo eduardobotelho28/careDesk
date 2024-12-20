@@ -17,8 +17,8 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
   .material-symbols-outlined:hover{
-    color: #125d6d;
-    transform: scale(2.2);
+    color: #0073e6;
+    transform: scale(1.2);
 
   }
   
@@ -32,7 +32,22 @@ body {
     margin-top: 280px;
    
   }
-  
+  button {
+    background-color: #000;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 350px;
+}
+
+button:hover {
+    background-color: #0073e6;
+    transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
+}
   h1 {
     text-align: center;
     margin-bottom: 20px;
