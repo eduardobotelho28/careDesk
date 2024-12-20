@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/register.css">
   <link rel="stylesheet" href="../assets/css/style.css">
-      <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_backspace" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-  <script src="https://kit.fontawesome.com/ae4cf172c7.js" crossorigin="anonymous"></script>
   <title>Register Doctor | CareDesk</title>
   <script defer src="../assets/js/register.js"></script>
+  <script defer src="../assets/js/header.js"></script>
+
 </head>
 <body class="doctor">
-    <header>
-        <a class="material-symbols-outlined" href="../../../index.php">
-            keyboard_backspace
-        </a>
-        <img class="logo" src="../assets/images/logo-caredesk.png" alt="Logo CAREDESK">
-    </header>
-    
+    <?php include 'header.php'; ?>
     <div class="register-container">
         <h1>REGISTER DOCTOR</h1>
         <form id="register-form">
