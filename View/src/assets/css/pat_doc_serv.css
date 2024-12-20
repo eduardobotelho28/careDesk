@@ -4,6 +4,10 @@
     padding: 20px;
     text-align: center;
     min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .action-buttons {
@@ -24,19 +28,19 @@
     background-color: #218838;
 }
 
-.patient-table, .doctor-table {
+.patient-table, .doctor-table, .service-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
-.patient-table th, .patient-table td, .doctor-table th, .doctor-table td {
+table th, table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-.patient-table th, .doctor-table th {
+table th {
     background-color: #f4f4f4;
     font-weight: bold;
 }

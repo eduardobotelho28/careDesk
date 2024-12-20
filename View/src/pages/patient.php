@@ -12,7 +12,7 @@ $patients = $patientModel->getAllPatients();
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/patient_doctor.css">
+    <link rel="stylesheet" href="../assets/css/pat_doc_serv.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Patient | CareDesk</title>
@@ -28,12 +28,12 @@ $patients = $patientModel->getAllPatients();
         <table class="patient-table">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>CPF</th>
-                    <th>Telefone</th>
+                    <th>Phone</th>
                     <th>Email</th>
-                    <th>Ações</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
