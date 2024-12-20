@@ -31,6 +31,15 @@ class MedicoController {
         }
 
     }
+    public function getSpecialties() {
+        include_once '../Models/SpecialtyModel.php';
+        $specialtyModel = new SpecialtyModel();
+        $specialties = $specialtyModel->fetchAll();
+
+        // Retorna as especialidades como JSON
+        header('Content-Type: application/json');
+        echo json_encode($specialties);
+    }
 
     private function register () {
 

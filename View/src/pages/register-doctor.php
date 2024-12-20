@@ -13,6 +13,7 @@
   <title>Register Doctor | CareDesk</title>
   <script defer src="../assets/js/register.js"></script>
   <script defer src="../assets/js/header.js"></script>
+  <script defer src="../assets/js/register-doctor.js"></script>
 
 </head>
 <body class="doctor">
@@ -50,13 +51,8 @@
                     <input type="text" id="crm" placeholder="12345" pattern="[0-9]{4,6}" required>
                 </div>
             </div>
-            <select id="especialidade" required>
-                <option value="" disabled selected>Select a specialty</option>
-                <option value="cardiologia">Cardiology</option>
-                <option value="pediatria">Pediatrics</option>
-                <option value="dermatologia">Dermatology</option>
-                <option value="neurologia">Neurology</option>
-                <!-- Adicione mais opções conforme necessário -->
+            <select id="especialidade" name="especialidade" required>
+                <option value="" disabled selected>Carregando especialidades...</option>
             </select>
             <div class="button-container">
                 <button type="submit" class="register-btn">Register</button>

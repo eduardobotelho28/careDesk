@@ -101,3 +101,68 @@ INSERT INTO consultas (idConsultas, dataHora, status, pacientes_idPaciente, medi
 (3, '2024-12-06 09:00:00', 'Confirmada', 3, 2, 2),
 (4, '2024-12-06 10:00:00', 'Confirmada', 4, 2, 2),
 (5, '2024-12-07 14:00:00', 'Confirmada', 5, 3, 2);
+
+-- Adicionando tabela de Especialidades
+CREATE TABLE especialidades (
+    idEspecialidade INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+-- Atualizando a tabela de Médicos para relacionamento com Especialidades (muitos-para-muitos)
+CREATE TABLE medicos_especialidades (
+    medicos_idMedicos INT NOT NULL,
+    especialidades_idEspecialidade INT NOT NULL,
+    PRIMARY KEY (medicos_idMedicos, especialidades_idEspecialidade),
+    FOREIGN KEY (medicos_idMedicos) REFERENCES medicos(idMedicos) ON DELETE CASCADE,
+    FOREIGN KEY (especialidades_idEspecialidade) REFERENCES especialidades(idEspecialidade) ON DELETE CASCADE
+);
+
+-- Adicionando tabela de Serviços
+CREATE TABLE servicos (
+    idServico INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+-- Atualizando a tabela de Consultas para relacionamento com Serviços (muitos-para-muitos)
+CREATE TABLE consultas_servicos (
+    consultas_idConsultas INT NOT NULL,
+    servicos_idServico INT NOT NULL,
+    PRIMARY KEY (consultas_idConsultas, servicos_idServico),
+    FOREIGN KEY (consultas_idConsultas) REFERENCES consultas(idConsultas) ON DELETE CASCADE,
+    FOREIGN KEY (servicos_idServico) REFERENCES servicos(idServico) ON DELETE CASCADE
+);
+
+-- Inserindo dados na tabela de Especialidades
+INSERT INTO especialidades (idEspecialidade, nome) VALUES
+(1, 'Cardiologia'),
+(2, 'Dermatologia'),
+(3, 'Ortopedia'),
+(4, 'Pediatria'),
+(5, 'Neurologia');
+
+-- Associando Médicos a Especialidades
+INSERT INTO medicos_especialidades (medicos_idMedicos, especialidades_idEspecialidade) VALUES
+(1, 1), -- Dr. João -> Cardiologia
+(2, 2), -- Dr. Ana Clara -> Dermatologia
+(3, 3), -- Dr. Pedro -> Ortopedia
+(4, 4), -- Dr. Maria -> Pediatria
+(5, 5), -- Dr. Lucas -> Neurologia
+(5, 3); -- Dr. Lucas também -> Ortopedia
+
+-- Inserindo dados na tabela de Serviços
+INSERT INTO servicos (idServico, nome, preco) VALUES
+(1, 'Consulta Simples', 150.00),
+(2, 'Exame de Sangue', 80.00),
+(3, 'Raio-X', 200.00),
+(4, 'Consulta Pediátrica', 180.00),
+(5, 'Ressonância Magnética', 500.00);
+
+-- Associando Consultas a Serviços
+INSERT INTO consultas_servicos (consultas_idConsultas, servicos_idServico) VALUES
+(1, 1), -- Consulta 1 -> Consulta Simples
+(1, 2), -- Consulta 1 -> Exame de Sangue
+(2, 3), -- Consulta 2 -> Raio-X
+(3, 1), -- Consulta 3 -> Consulta Simples
+(4, 4), -- Consulta 4 -> Consulta Pediátrica
+(5, 5); -- Consulta 5 -> Ressonância Magnética
