@@ -17,6 +17,8 @@
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Services | CareDesk</title>
     <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/modal.js" defer></script>
+
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -32,7 +34,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>Action</th>
+                    <th class="th-action">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,15 +42,42 @@
                     <tr>
                         <td><?= htmlspecialchars($service['idServico']) ?></td>
                         <td><?= htmlspecialchars($service['nome']) ?></td>
-                        <td><?= htmlspecialchars($service['preco']) ?></td>
-                        <td>
-                            <a href="edit-service.php?id=<?= htmlspecialchars($service['idServico']) ?>" class="edit-button">Editar</a>
+                        <td>R$ <?= number_format($service['preco'], 2, ',', '.') ?></td>
+                        <td class ="th-action">
+                            <button 
+                                class="edit-button" 
+                                data-id="<?= htmlspecialchars($service['idServico']) ?>" 
+                                data-nome="<?= htmlspecialchars($service['nome']) ?>" 
+                                data-preco="<?= htmlspecialchars($service['preco']) ?>">
+                                Editar
+                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </main>
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Service</h2>
+            <form id="edit-form">
+                <input type="hidden" id="service-id">
+                <div>
+                    <label for="service-name">Name:</label>
+                    <input type="text" id="service-name" required>
+                </div>
+                <div>
+                    <label for="service-price">Price:</label>
+                    <input type="number" id="service-price" step="0.01" required>
+                </div>
+                <div class = "button-container">
+                    <button type="submit" class="save-button">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="notification" class="hidden"></div>
     <?php include 'footer.php'; ?>
 
 </body>
