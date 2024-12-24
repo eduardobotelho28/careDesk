@@ -81,7 +81,7 @@ class UserController {
     
         // Busca o usuário pelo CPF
         $user = $this->model->findByCPF($data['cpf']);
-    
+
         if (!$user) {
             http_response_code(401); // Não autorizado
             echo json_encode(['success' => 'false', 'errors' => ["CPF ou senha inválidos"]]);
@@ -97,6 +97,8 @@ class UserController {
     
         // Login bem-sucedido
         echo json_encode(['success' => 'true', 'redirect' => '/careDesk/View/src/pages/dashboard.php']);
+        session_start();
+        $_SESSION['usuario'] = $user['idUsers'] ;
         exit;
     }
     

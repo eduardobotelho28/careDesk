@@ -38,16 +38,9 @@ async function sendFormAjax(evt) {
 
 
 function treatResponse(data) {
-    responseDiv.innerHTML = '';
-    if (data.success === 'false') { 
-        data.errors.forEach(error => {
-            const paragraph = document.createElement('p');
-            paragraph.innerText = error; // Adiciona o erro à resposta
-            responseDiv.appendChild(paragraph);
-        });
-        return;
+   
+    if (data.success === 'true') { 
+        window.location.href = '/careDesk/View/src/pages/home.php';
     }
 
-    //redirecionar 
-    // window.location.href = '/careDesk/View/src/pages/dashboard.php';
 }
