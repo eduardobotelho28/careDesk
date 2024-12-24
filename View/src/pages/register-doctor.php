@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="../assets/css/footer.css">
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
   <title>Register Doctor | CareDesk</title>
-  <script defer src="../assets/js/register.js"></script>
   <script defer src="../assets/js/header.js"></script>
   <script defer src="../assets/js/register-doctor.js"></script>
 
@@ -27,11 +26,11 @@
             <div class="name">
                 <div class="first-name">
                     <label for="firstname">First name:</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="First name here" required>
+                    <input type="text" id="firstname" name="nome" placeholder="First name here" required>
                 </div>
                 <div class="last-name">
                     <label for="lastname">Last name:</label>
-                    <input type="text" id="lastname" name="lastname" placeholder="Last name here" required>
+                    <input type="text" id="lastname" name="sobrenome" placeholder="Last name here" required>
                 </div>
             </div>
             <div class="personal-itens">
@@ -41,7 +40,7 @@
                 </div>
                 <div class="phone">
                     <label for="phone">Telefone:</label>
-                    <input type="text" id="phone" placeholder="(00) 00000-0000" required>
+                    <input type="text" id="phone" placeholder="(00) 00000-0000" required name="telefone">
                 </div>
             </div>
             <div class="box-itens">
@@ -51,11 +50,12 @@
                 </div>    
                 <div class="crm">
                     <label for="crm">CRM:</label>
-                    <input type="text" id="crm" placeholder="12345" pattern="[0-9]{4,6}" required>
+                    <input type="text" id="crm" placeholder="12345" pattern="[0-9]{4,6}" required name="crm">
                 </div>
             </div>
             <select id="especialidade" name="especialidade" required>
                 <option value="" disabled selected>Carregando especialidades...</option>
+                <option value="1" >Pediatra</option>
             </select>
             <div class="button-container">
                 <button type="submit" class="register-btn">Register</button>

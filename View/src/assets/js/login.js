@@ -36,7 +36,6 @@ async function sendFormAjax(evt) {
     }
 }
 
-
 function treatResponse(data) {
    
     if (data.success === 'true') { 
