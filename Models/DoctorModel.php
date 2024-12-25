@@ -17,4 +17,12 @@ class DoctorModel
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    // Método para registrar um novo usuário
+    public function register ($data) {
+
+        $stmt = $this->connection->prepare("INSERT INTO medicos (nome, sobrenome, email, crm, especialidade, telefone, cpf)
+                                    VALUES (:nome, :sobrenome, :email, :crm, :especialidade, :telefone,:cpf)");
+        $stmt->execute($data);
+    }
 }
