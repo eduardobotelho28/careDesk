@@ -46,7 +46,7 @@ $doctors = $doctorModel->getDoctors();
                             <td><?= htmlspecialchars($doctor['telefone']); ?></td>
                             <td><?= htmlspecialchars($doctor['email']); ?></td>
                             <td>
-                                <a href="edit-doctor.php?id=<?= $doctor['idMedicos']; ?>" class="edit-button">Editar</a>
+                               <button class="edit-button">Editar</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -1,19 +1,22 @@
 function showNotification(message, isSuccess = true) {
     const notification = document.getElementById("notification");
 
-    // Configura a mensagem e a cor
-    notification.textContent = message;
-    notification.classList.remove("hidden", "error");
-    notification.classList.add("show");
+    console.log("Notificação chamada:", message); // Adicionado para depurar
 
-    if (!isSuccess) {
-        notification.classList.add("error");
+    if (!notification) {
+        console.error("Elemento de notificação não encontrado!");
+        return;
     }
 
-    // Remove a notificação após 3 segundos
+    // Define o texto e a classe de estilo
+    notification.textContent = message;
+    notification.classList.remove("hidden");
+    notification.classList.add(isSuccess ? "success" : "error");
+
+    // Mostra a notificação por 3 segundos e a remove
     setTimeout(() => {
-        notification.classList.remove("show");
-        setTimeout(() => notification.classList.add("hidden"), 500);
+        notification.classList.add("hidden");
+        notification.classList.remove("success", "error");
     }, 3000);
 }
 
@@ -21,9 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("edit-modal");
     const closeModal = document.querySelector(".close-modal");
     const editButtons = document.querySelectorAll(".edit-button");
+    const addButton = document.getElementById("add-service-button");
     const editForm = document.getElementById("edit-form");
+    const saveButton = document.querySelector(".save-button");
 
-    // Abrir o modal ao clicar no botão "Edit"
+    let isEditing = false; // Flag para diferenciar adição e edição
+
+    // Abrir modal para edição
     editButtons.forEach(button => {
         button.addEventListener("click", () => {
             const serviceId = button.getAttribute("data-id");
@@ -35,10 +42,32 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("service-name").value = serviceName;
             document.getElementById("service-price").value = servicePrice;
 
+            // Alterar o texto do botão
+            saveButton.textContent = "Salvar";
+
+            isEditing = true; // Sinalizar modo de edição
+
             // Mostrar o modal
             modal.classList.remove("hidden");
             modal.style.display = "flex";
         });
+    });
+
+    // Abrir modal para adição
+    addButton.addEventListener("click", () => {
+        // Limpar os campos do modal
+        document.getElementById("service-id").value = "";
+        document.getElementById("service-name").value = "";
+        document.getElementById("service-price").value = "";
+
+        // Alterar o texto do botão
+        saveButton.textContent = "Adicionar";
+
+        isEditing = false; // Sinalizar modo de adição
+
+        // Mostrar o modal
+        modal.classList.remove("hidden");
+        modal.style.display = "flex";
     });
 
     // Fechar o modal
@@ -47,27 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
     });
 
-    // Função para exibir notificação
-    function showNotification(message, isSuccess = true) {
-        const notification = document.getElementById("notification");
-
-        // Configurar mensagem e estilo
-        notification.textContent = message;
-        notification.classList.remove("hidden", "error");
-        notification.classList.add("show");
-
-        if (!isSuccess) {
-            notification.classList.add("error");
-        }
-
-        // Esconder a notificação após 3 segundos
-        setTimeout(() => {
-            notification.classList.remove("show");
-            setTimeout(() => notification.classList.add("hidden"), 500); // Esconde após o fade-out
-        }, 3000);
-    }
-
-    // Enviar o formulário de edição
+    // Enviar o formulário
     editForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -75,33 +84,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const name = document.getElementById("service-name").value;
         const price = document.getElementById("service-price").value;
 
-        console.log({ id, name, price });
+        // Verificar se está em modo de edição ou adição
+        const endpoint = isEditing
+            ? "../../../Controllers/update-register.php" // Atualizar
+            : "../../../Controllers/insert-register.php"; // Adicionar
 
-        // Enviar os dados para o servidor via fetch
-        fetch("update-register.php", {
+        // Enviar os dados para o servidor
+        fetch(endpoint, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ id, name, price }),
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showNotification("Service updated successfully!"); // Exibe a notificação
-                modal.classList.add("hidden"); // Fecha o modal imediatamente
-                modal.style.display = "none"; // Garante que o modal seja escondido
-                // Atualiza a página após 3 segundos
-                setTimeout(() => {
-                    location.reload();
-                }, 3000);
-            } else {
-                showNotification("Failed to update service.", false); // Exibe notificação de falha
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            showNotification("An error occurred.", false); // Exibe notificação de erro
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const message = isEditing
+                        ? "Service updated successfully!"
+                        : "Service added successfully!";
+                    showNotification(message);
+                    modal.classList.add("hidden");
+                    location.reload(); // Atualizar a página
+                } else {
+                    showNotification("Operation failed.", false);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                showNotification("An error occurred.", false);
+            });
     });
 });

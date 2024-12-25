@@ -46,7 +46,10 @@ $patients = $patientModel->getAllPatients();
                             <td><?= htmlspecialchars($patient['telefone']); ?></td>
                             <td><?= htmlspecialchars($patient['email']); ?></td>
                             <td>
-                                <a href="edit-patient.php?id=<?= $patient['idPaciente']; ?>" class="edit-button">Editar</a>
+                            <button 
+                                class="edit-button">
+                                Editar
+                            </button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

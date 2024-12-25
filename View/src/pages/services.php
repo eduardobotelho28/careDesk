@@ -25,7 +25,7 @@
     <main class="container">
         <h1>Serviços</h1>
         <div class="action-buttons">
-            <a href="register-service.php" class="add-button">Adicione novo Serviço</a>
+            <button id="add-service-button" class="add-button">Adicione novo Serviço</a>
         </div>
 
         <table class="service-table">
