@@ -34,7 +34,7 @@
             </div>
             <button id="expand-button">▼</button>
             <div id="user-menu" class="dropdown hidden">
-                <a href="logout.php">Log Out</a>
+                <a href="../../../Controllers/logout.php">Log Out</a>
             </div>
         </div>
 </header>

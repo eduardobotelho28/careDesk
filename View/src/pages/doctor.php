@@ -17,6 +17,7 @@ $doctors = $doctorModel->getDoctors();
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Doctor | CareDesk</title>
     <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/modal-doctor.js" defer></script>
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -39,14 +40,14 @@ $doctors = $doctorModel->getDoctors();
             <tbody>
                 <?php if (!empty($doctors)) : ?>
                     <?php foreach ($doctors as $doctor) : ?>
-                        <tr>
+                        <tr data-id="<?= htmlspecialchars($doctor['idMedicos']); ?>">
                             <td><?= htmlspecialchars($doctor['crm']); ?></td>
                             <td><?= htmlspecialchars($doctor['nome']); ?></td>
                             <td><?= htmlspecialchars($doctor['sobrenome']); ?></td>
                             <td><?= htmlspecialchars($doctor['telefone']); ?></td>
                             <td><?= htmlspecialchars($doctor['email']); ?></td>
                             <td>
-                                <a href="edit-doctor.php?id=<?= $doctor['idMedicos']; ?>" class="edit-button">Editar</a>
+                                <button class="edit-button">Editar</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -57,7 +58,35 @@ $doctors = $doctorModel->getDoctors();
                 <?php endif; ?>
             </tbody>
         </table>
+        <div id="edit-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modal-title">Editar Médico</h2>
+                <form id="edit-form">
+                    <input type="hidden" id="doctor-id" name="id">  
+                    <input type="hidden" id="doctor-crm" name="crm">
+                    <div>
+                        <label for="doctor-first-name">Primeiro Nome:</label>
+                        <input type="text" id="doctor-first-name" name="nome" required>
+                    </div>
+                    <div>
+                        <label for="doctor-last-name">Sobrenome:</label>
+                        <input type="text" id="doctor-last-name" name="sobrenome" required>
+                    </div>
+                    <div>
+                        <label for="doctor-phone">Telefone:</label>
+                        <input type="text" id="doctor-phone" name="telefone" required>
+                    </div>
+                    <div>
+                        <label for="doctor-email">Email:</label>
+                        <input type="email" id="doctor-email" name="email" required>
+                    </div>
+                    <button type="submit" class="save-button">Salvar</button>
+                </form>
+            </div>
+        </div>
     </main>
+    
     <?php include 'footer.php'; ?>
 
 </body>

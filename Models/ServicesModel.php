@@ -17,4 +17,10 @@ class ServiceModel
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function addService($name, $price) {
+        $sql = "INSERT INTO servicos (nome, preco) VALUES (:name, :price)";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute(['name' => $name, 'price' => $price]);
+    }
+
 }
