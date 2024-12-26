@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
   <title>Register Patient | CareDesk</title>
-  <script defer src="../assets/js/register.js"></script>
+  <script defer src="../assets/js/register-patient.js"></script>
   <script src="../assets/js/header.js" defer></script>
 </head>
 <body class="patient">
@@ -26,11 +26,11 @@
             <div class="name">
                 <div class="first-name">
                     <label for="firstname">First name:</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="First name here" required>
+                    <input type="text" id="firstname" name="nome" placeholder="First name here" required>
                 </div>
                 <div class="last-name">
                     <label for="lastname">Last name:</label>
-                    <input type="text" id="lastname" name="lastname" placeholder="Last name here" required>
+                    <input type="text" id="lastname" name="sobrenome" placeholder="Last name here" required>
                 </div>
             </div>
             <div class="personal-itens">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="phone">
                     <label for="phone">Telefone:</label>
-                    <input type="text" id="phone" placeholder="(00) 00000-0000" required>
+                    <input type="text" id="phone" placeholder="(00) 00000-0000" required name="telefone">
                 </div>
             </div>
             <label for="email">Email:</label>
@@ -48,7 +48,7 @@
                 
             <div class="especialidade">
                 <label for="historico">Patient history:</label>
-                <textarea id="historico" rows="6" cols="50" placeholder="Describe the patient's medical history, including pre-existing conditions, surgeries, allergies, and other relevant details." required></textarea>
+                <textarea id="historico" rows="6" cols="50" placeholder="Describe the patient's medical history, including pre-existing conditions, surgeries, allergies, and other relevant details." required name="historico"></textarea>
                 </div>
             <div class="button-container">
                 <button type="submit" class="register-btn">Register</button>
