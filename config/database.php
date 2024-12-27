@@ -12,6 +12,7 @@ class Database extends PDO
         $dsn = "mysql:host={$this->hostname};dbname={$this->database}";
 
         try {
+            // Chama o construtor da classe PDO
             parent::__construct($dsn, $this->username, $this->password, [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

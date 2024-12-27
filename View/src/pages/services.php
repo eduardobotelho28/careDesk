@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-    <link rel="stylesheet" href="../assets/css/pat_doc_serv.css">
+    <link rel="stylesheet" href="../assets/css/main_pages.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Services | CareDesk</title>
     <script src="../assets/js/header.js" defer></script>
@@ -60,7 +60,7 @@
     <div id="edit-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Edit Service</h2>
+            <h2 id="h2">Edit Service</h2>
             <form id="edit-form">
                 <input type="hidden" id="service-id">
                 <div>

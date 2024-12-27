@@ -12,11 +12,13 @@ $patients = $patientModel->getAllPatients();
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/pat_doc_serv.css">
+    <link rel="stylesheet" href="../assets/css/main_pages.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Patient | CareDesk</title>
     <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/modal-patient.js" defer></script>
+
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -39,7 +41,7 @@ $patients = $patientModel->getAllPatients();
             <tbody>
                 <?php if (!empty($patients)) : ?>
                     <?php foreach ($patients as $patient) : ?>
-                        <tr>
+                        <tr data-id="<?= htmlspecialchars($patient['idPaciente']); ?>">
                             <td><?= htmlspecialchars($patient['nome']); ?></td>
                             <td><?= htmlspecialchars($patient['sobrenome']); ?></td>
                             <td><?= htmlspecialchars($patient['cpf']); ?></td>
@@ -60,6 +62,31 @@ $patients = $patientModel->getAllPatients();
                 <?php endif; ?>
             </tbody>
         </table>
+        <div id="edit-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modal-title">Editar Paciente</h2>
+                <form id="edit-form">
+                    <input type="hidden" id="patient-id" name="id">  
+                    <div>
+                        <label for="patient-first-name">Primeiro Nome:</label>
+                        <input type="text" id="patient-first-name" name="nome" required>
+                    </div>
+                    <div>
+                        <label for="patient-last-name">Sobrenome:</label>
+                        <input type="text" id="patient-last-name" name="sobrenome" required>
+                    </div>
+                    <div>
+                        <label for="patient-phone">Telefone:</label>
+                        <input type="text" id="patient-phone" name="telefone" required>
+                    </div>
+                    <div>
+                        <label for="patient-email">Email:</label>
+                        <input type="email" id="patient-email" name="email" required>
+                    </div>
+                    <button type="submit" class="save-button">Salvar</button>
+                </form>
+            </div>
     </main>
     <?php include 'footer.php'; ?>
 

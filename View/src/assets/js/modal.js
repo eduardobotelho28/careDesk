@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.getElementById("add-service-button");
     const editForm = document.getElementById("edit-form");
     const saveButton = document.querySelector(".save-button");
+    const h2 = document.getElementById("h2");
+
 
     let isEditing = false; // Flag para diferenciar adição e edição
 
@@ -44,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Alterar o texto do botão
             saveButton.textContent = "Salvar";
+            h2.textContent = "Editar Serviço";
+
 
             isEditing = true; // Sinalizar modo de edição
 
@@ -62,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Alterar o texto do botão
         saveButton.textContent = "Adicionar";
+        h2.textContent = "Adicionar Serviço";
 
         isEditing = false; // Sinalizar modo de adição
 

@@ -55,7 +55,6 @@
             </div>
             <select id="especialidade" name="especialidade" required>
                 <option value="" disabled selected>Carregando especialidades...</option>
-                <option value="1" >Pediatra</option>
             </select>
             <div class="button-container">
                 <button type="submit" class="register-btn">Register</button>
