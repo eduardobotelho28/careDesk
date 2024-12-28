@@ -79,7 +79,7 @@ table th {
 }
 
 /* Estilo dos campos de input */
-input[type="text"], input[type="number"], input[type = "email"] {
+input[type="text"], input[type="number"], input[type = "email"], input[type = "datetime-local"] {
     width: calc(100% - 20px); /* Garantir que o input respeite o padding */
     padding: 10px;
     margin: 10px 0;
@@ -234,3 +234,5 @@ h2 {
     opacity: 1;
     transform: translateY(0);
 }
+
+

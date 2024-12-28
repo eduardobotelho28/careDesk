@@ -1,3 +1,10 @@
+<?php
+require_once __DIR__ . '/../../../Models/ConsultationModel.php';
+
+$ConsultationModel = new ConsultationModel();
+$consultas = $ConsultationModel->getConsultations(); // Mudança aqui para manter a consistência
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,13 +18,14 @@
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <title>Consultations | CareDesk</title>
     <script src="../assets/js/header.js" defer></script>
+    <script src="../assets/js/modal-agenda.js" defer></script>
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <main class="container">
+    <main class="container"> 
         <h1>Consultas Agendadas</h1>
         <div class="action-buttons">
-            <a href="" class="add-button">Adicionar Nova Consulta</a>
+            <a href="register-agenda" class="add-button">Adicionar Nova Consulta</a>
         </div>
         <table class="consultations-table">
             <thead>
@@ -35,7 +43,7 @@
                     <?php foreach ($consultas as $consulta) : ?>
                         <tr data-id="<?= htmlspecialchars($consulta['idConsultas']); ?>">
                             <td><?= htmlspecialchars($consulta['idConsultas']); ?></td>
-                            <td><?= htmlspecialchars(date('d/m/Y H:i', strtotime($consulta['dataHora']))); ?></td>
+                            <td><?= htmlspecialchars(date('Y-m-d H:i:s', strtotime($consulta['dataHora']))); ?></td>
                             <td><?= htmlspecialchars($consulta['status']); ?></td>
                             <td><?= htmlspecialchars($consulta['paciente_nome']); ?></td>
                             <td><?= htmlspecialchars($consulta['medico_nome']); ?></td>
@@ -51,6 +59,33 @@
                 <?php endif; ?>
             </tbody>
         </table>
+
+        <div id="edit-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modal-title">Editar registro de consulta</h2>
+                <form id="edit-form">
+                    <input type="hidden" id="consulta-id" name="id">
+                    <div>
+                        <label for="consulta-dataHora">Data e Hora da consulta:</label>
+                        <input type="datetime-local" id="consulta-dataHora" name="dataHora" required>
+                    </div>
+                    <div>
+                        <label for="consulta-status">Status da consulta:</label>
+                        <input type="text" id="consulta-status" name="status" required>
+                    </div>
+                    <div>
+                        <label for="consulta-paciente_nome">Nome do paciente:</label>
+                        <input type="text" id="consulta-paciente_nome" name="paciente_nome" required>
+                    </div>
+                    <div>
+                        <label for="consulta-medico_nome">Nome do médico:</label>
+                        <input type="text" id="consulta-medico_nome" name="medico_nome" required>
+                    </div>
+                    <button type="submit" class="save-button">Salvar</button>
+                </form>
+            </div>
+        </div>
     </main>
     <?php include 'footer.php'; ?>
 
