@@ -45,6 +45,11 @@ table th {
     background-color: #f4f4f4;
     font-weight: bold;
 }
+table{
+    border-spacing: 0px;
+    border-color: #ddd;
+    border-collapse: collapse;
+}
 
 .edit-button {
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -87,6 +92,7 @@ input[type="text"], input[type="number"], input[type = "email"], input[type = "d
     border-radius: 4px;
     font-size: 1em;
     box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
+    font-family: "Montserrat", sans-serif;
 }
 
 input[type="text"]:focus, input[type="number"]:focus {

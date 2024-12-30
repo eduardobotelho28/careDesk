@@ -23,32 +23,75 @@
     </div>
     <div class="register-container">
         <h1>REGISTRAR CONSULTA</h1>
+        <?php
+        // Conexão com o banco de dados
+        require_once __DIR__ . '/../../../config/database.php';
+        
+        // Crie a conexão
+        $pdo = new Database();
+        
+        // Consultar médicos
+        $medicos_query = $pdo->query("SELECT idMedicos, CONCAT(nome, ' ', sobrenome) AS nomeCompleto FROM medicos");
+        $medicos = $medicos_query->fetchAll();
+        
+        // Consultar pacientes
+        $pacientes_query = $pdo->query("SELECT idPaciente, CONCAT(nome, ' ', sobrenome) AS nomeCompleto FROM pacientes");
+        $pacientes = $pacientes_query->fetchAll();
+        
+        // Consultar serviços
+        $servicos_query = $pdo->query("SELECT idServico, nome FROM servicos");
+        $servicos = $servicos_query->fetchAll();
+        ?>
         <form id="register-form">
             <div class="box_1">
                 <div class="dataHora">
                     <label for="dataHora">Data e Hora:</label>
-                    <input type="datetime-local" id="consulta-data-Hora" name="dataHora" placeholder="Dia e horário" required>
+                    <input type="datetime-local" id="consulta-data-Hora" name="dataHora" required>
                 </div>
                 <div class="status">
                     <label for="status">Status:</label>
-                    <input type="text" id="consulta-status" name="status" placeholder="Agendada/Concluída/Cancelada" required>
+                    <select id="consulta-status" name="status" required>
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
                 </div>
             </div>
             <div class="box_2">
                 <div class="paciente_nome">
-                    <label for="paciente_nome">Nome do paciente:</label>
-                    <input type="text" id="consulta-paciente_nome" name="paciente_nome" placeholder="Nome do paciente" required>
+                    <label for="paciente_id">Paciente:</label>
+                    <select id="consulta-paciente_id" name="paciente_id" required>
+                        <option value="" disabled selected>Selecione um paciente</option>
+                        <?php foreach ($pacientes as $paciente): ?>
+                            <option value="<?= $paciente['idPaciente']; ?>"><?= htmlspecialchars($paciente['nomeCompleto']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="medico_nome">
-                    <label for="medico_nome">Nome do médico:</label>
-                    <input type="text" id="consulta-medico_nome" placeholder="Nome do médico" name="medico_nome" required >
+                    <label for="medico_id">Médico:</label>
+                    <select id="consulta-medico_id" name="medico_id" required>
+                        <option value="" disabled selected>Selecione um médico</option>
+                        <?php foreach ($medicos as $medico): ?>
+                            <option value="<?= $medico['idMedicos']; ?>"><?= htmlspecialchars($medico['nomeCompleto']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="box_3">
+                <div class="servico_nome">
+                    <label for="servico_id">Serviço:</label>
+                    <select id="consulta-servico_id" name="servico_id" required>
+                        <option value="" disabled selected>Selecione um serviço</option>
+                        <?php foreach ($servicos as $servico): ?>
+                            <option value="<?= $servico['idServico']; ?>"><?= htmlspecialchars($servico['nome']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
             <div class="button-container">
                 <button type="submit" class="register-btn">Registrar</button>
             </div>
         </form>
-        <div class="response-container">
+                <div class="response-container">
             
         </div>
     </div>
